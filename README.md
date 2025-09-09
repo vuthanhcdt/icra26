@@ -85,10 +85,10 @@ sudo apt-get install ros-$ROS_DISTRO-joy ros-$ROS_DISTRO-teleop-twist-joy \
 
 Run the following commands to set up the workspace and install the required packages:
 ```bash
-mkdir -p ~/ral_ws/src
-cd ~/ral_ws/src/
+mkdir -p ~/icra_ws/src
+cd ~/icra_ws/src/
 git clone git@github.com:vuthanhcdt/icra26.git
-cd ~/ral_ws
+cd ~/icra_ws
 rosdep install --from-paths src --ignore-src -r -y
 colcon build --symlink-install
 echo "source ~/ral_ws/install/setup.bash" >> ~/.bashrc
