@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<xacro:property name="base_size_x" value="0.56" />
+<xacro:property name="base_size_y" value="0.3" />
+<xacro:property name="base_size_z" value="0.15" />
+<xacro:macro name="scout_mini_base" params="prefix">
+  <link name="${prefix}base_footprint"/>
+  <link name="${prefix}base_link">
+    <visual>
+        <geometry>
+          <mesh filename="file://$(find scout_simulation)/meshes/scout_mini/visual/scout_mini_base_link.dae"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="1.57 0 4.71"/>
+    </visual>
+    <collision>
+        <geometry>
+            <box size="${base_size_x} ${base_size_y} ${base_size_z}"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+        <mass value="60"/>
+        <origin xyz="0.0 0.0 0.0"/>
+        <inertia ixx="2.288641" ixy="0" ixz="0" iyy="5.103976" iyz="0" izz="3.431465"/>
+    </inertial>
+  </link>
+
+  <joint name="${prefix}base_joint" type="fixed">
+    <parent link="${prefix}base_footprint"/>
+    <child link="${prefix}base_link"/>
+    <origin xyz="0 0 0.115" rpy="0 0 0"/>
+  </joint>
+</xacro:macro>
+</robot>

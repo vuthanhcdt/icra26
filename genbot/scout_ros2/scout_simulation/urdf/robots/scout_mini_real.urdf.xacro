@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<robot name="scout_mini" xmlns:xacro="http://www.ros.org/wiki/xacro" xmlns:gz="http://gazebosim.org/schema">
+
+    <xacro:property name="M_PI" value="3.1415926535897931" />
+
+    <xacro:arg name="robot_name" default="scout_mini"/>
+    <xacro:arg name="prefix" default=""/>
+    <xacro:arg name="use_gazebo" default="false"/>
+
+    <xacro:include filename="$(find scout_simulation)/urdf/robots/scout_mini_base_real.urdf.xacro"/>
+    <xacro:include filename="$(find scout_simulation)/urdf/robots/mecanum_wheel_real.urdf.xacro"/>
+    <!-- <xacro:include filename="$(find scout_simulation)/urdf/sensors/rgbd_camera.urdf.xacro"/> -->
+    <xacro:include filename="$(find scout_simulation)/urdf/sensors/lidar.urdf.xacro"/>
+    <xacro:include filename="$(find scout_simulation)/urdf/sensors/imu.urdf.xacro"/>
+
+    <xacro:scout_mini_base prefix="$(arg prefix)"/>
+
+    <xacro:mecanum_wheel
+      prefix="$(arg prefix)"
+      side="front_left"
+      x_reflect="1"
+      y_reflect="1"/>
+
+    <xacro:mecanum_wheel
+      prefix="$(arg prefix)"
+      side="front_right"
+      x_reflect="1"
+      y_reflect="-1"/>
+
+    <xacro:mecanum_wheel
+      prefix="$(arg prefix)"
+      side="back_left"
+      x_reflect="-1"
+      y_reflect="1"/>
+
+    <xacro:mecanum_wheel
+      prefix="$(arg prefix)"
+      side="back_right"
+      x_reflect="-1"
+      y_reflect="-1"/>
+
+    <!-- <xacro:rgbd_camera
+      prefix="$(arg prefix)"
+      camera_name="realsense"
+      xyz_offset="0.23 0 0.31"
+      rpy_offset="0 0 0"/> -->
+
+    <xacro:lidar_sensor
+      prefix="$(arg prefix)"
+      parent="base_link"
+      frame_id="base_scan"
+      xyz_offset="-0.04 0 0.5"
+      rpy_offset="0 0 0"
+      mesh_xyz_offset="0 0 0"
+      mesh_rpy_offset="1.57 0 3.14"
+      topic_name="scan"/>
+
+    <xacro:imu_sensor
+      prefix="$(arg prefix)"
+      parent="base_link"
+      frame_id="imu"
+      xyz_offset="0 0 0.006"
+      rpy_offset="0 0 0"
+      update_rate="200.0"
+      topic_name="imu/data"/>
+
+
+    <joint type="fixed" name="frame_joint">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <child link="frame_link"/>
+      <parent link="base_link"/>
+      <axis xyz="0 1 0" />
+    </joint>
+    <link name='frame_link'>
+      <pose>0 0 0 0 0 0</pose>
+      <inertial>
+        <mass value="0.1"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia
+            ixx="1e-6" ixy="0" ixz="0"
+            iyy="1e-6" iyz="0"
+            izz="1e-6"/>
+      </inertial>
+      <collision name='collision'>
+        <origin xyz="0 0 0.345" rpy="0 0 0"/> 
+        <geometry>
+          <box size=".35 .29 0.45"/>
+        </geometry>
+      </collision>
+      <visual>
+        <geometry>
+          <mesh filename="file://$(find scout_simulation)/meshes/scout_mini/frame/frame.dae"/>
+        </geometry>
+        <!-- <origin xyz="0 0 0" rpy="0 0 0"/> -->
+        <origin xyz="0.265 0.062 0.12" rpy="1.57 0 1.57"/>
+    </visual>
+    </link>
+
+    <joint type="fixed" name="monitor_joint">
+      <origin xyz="-0.35 0 0.43" rpy="0 0 0"/>
+      <child link="monitor_link"/>
+      <parent link="base_link"/>
+      <axis xyz="0 1 0" />
+    </joint>
+    <link name='monitor_link'>
+      <pose>0 0 0 0 0 0</pose>
+      <visual>
+        <geometry>
+          <mesh filename="file://$(find scout_simulation)/meshes/scout_mini/monitor/monitor.dae"/>
+        </geometry>
+        <origin xyz="0 0.18 0" rpy="-0.5 0 -1.57"/>
+    </visual>
+    </link>
+
+
+    
+    
+</robot>

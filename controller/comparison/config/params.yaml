@@ -1,0 +1,22 @@
+mppi_human_following:
+  ros__parameters:
+    base_link_frame: 'base_link'
+    robot_width: 0.6
+    robot_length: 0.55
+    min_vel_x: -2.5
+    max_vel_x: 2.5
+    min_vel_y: -1.0
+    max_vel_y: 1.0
+    min_ang_z: -1.5
+    max_ang_z: 1.5
+    angle_weight: 50.0
+    cbf_weight: 10000000.0
+    obs_weight: 10000000.0
+    dist_weight_x: 50.0
+    dist_weight_y: 15.0
+    lambda_weight: 30.0
+    safety_length: 0.9 # (meter)
+    safety_width: 0.6 # (meter)
+    alpha_cbf: 0.3
+    distance_start: 3.0
+

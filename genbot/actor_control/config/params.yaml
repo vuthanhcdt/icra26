@@ -1,0 +1,9 @@
+actor_control:
+  ros__parameters:
+      position_control_mode: True
+      topic_actor_velocity: cmd_vel_actor
+      topic_actor_position: pose_control_actor
+      topic_actor_position_mode: mode_position_actor
+      speed: 0.5
+      waypoints: "[[10.0, 0.0, 0.0], [10.0, 10.0, 0.0], [0.0, 10.0, 0.0],  [0.0, 0.0, 0.0]]"
+

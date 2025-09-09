@@ -1,0 +1,13 @@
+gimbal_bringup:
+  ros__parameters:
+    port: '/dev/ttyACM0'
+    max_torque: 15.0
+    camera_x: -0.08
+    camera_y: 0.0
+    camera_z: 0.73
+
+gimbal_tracking:
+  ros__parameters:
+      semi_major_axis: 1.2
+      semi_minor_axis: 0.9
+      num_points: 9

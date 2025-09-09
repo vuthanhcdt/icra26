@@ -1,0 +1,19 @@
+actor_control:
+  ros__parameters:
+      position_control_mode: False
+      topic_actor_velocity: cmd_vel_ped
+      topic_actor_position: pose_control_ped
+      topic_actor_position_mode: mode_position_ped
+      topic_ped_local_pose: ped_local_pose
+      topic_actor_global_pose: ped_global_pose
+      topic_actor_local_pose: human_local_pose
+      speed: 0.5
+      waypoints: "[[5.0, 10.0, 0.0]]"
+      goal_x_1: -1.5
+      goal_y_1: -0.0
+      goal_x_2: 0.5
+      goal_y_2: -0.9
+      scenario: s5
+        
+      
+

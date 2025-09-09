@@ -1,0 +1,9 @@
+amfitrack:
+  ros__parameters:
+    relativePos: 'human_local_pose'
+    tf_frame_id: 'amfitrack_link'
+    base_link: 'amfitrack_link'
+    tf_child_name: 'human_link'
+    delta_t: 0.05
+    num_step: 10
+

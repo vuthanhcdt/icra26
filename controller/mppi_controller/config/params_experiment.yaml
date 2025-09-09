@@ -1,0 +1,18 @@
+mppi_controller:
+  ros__parameters:
+    topic_velocity: "cmd_vel"
+    dt: 0.1
+    horizon: 15
+    num_samples: 1000
+    lambda: 0.01
+    non_holonomic_terminal_scale: 100.0
+    non_holonomic_distance_weight: 100.0
+    non_holonomic_angle_weight: 10.0
+    holonomic_terminal_scale_x: 300.0
+    holonomic_terminal_scale_y: 200.0
+    holonomic_distance_weight_x: 300.0
+    holonomic_distance_weight_y: 200.0
+    holonomic_angle_weight: 200.0
+    safe_distance: 1.2
+    cbf_weight: 10000000.0
+    cbf_alpha: 0.1
