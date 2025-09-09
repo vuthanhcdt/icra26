@@ -1,4 +1,4 @@
-# Vision-Language Model-Based Social Awareness for Human-Companion Robots
+# Adaptive Human Group Companionship for Social Robots Using Vision-Language Models
 
 These packages were developed by [Thanh](https://sites.google.com/view/vuthanhcdt/home) from the [Networked Robotic Systems Laboratory](https://sites.google.com/site/yenchenliuncku). If you use any packages from this repository, please cite this repository and our team.
 
@@ -87,7 +87,7 @@ Run the following commands to set up the workspace and install the required pack
 ```bash
 mkdir -p ~/ral_ws/src
 cd ~/ral_ws/src/
-git clone git@github.com:vuthanhcdt/ral.git
+git clone git@github.com:vuthanhcdt/icra26.git
 cd ~/ral_ws
 rosdep install --from-paths src --ignore-src -r -y
 colcon build --symlink-install
@@ -105,38 +105,6 @@ ros2 launch actor_control actor_control.launch.py config:=s1_ped_params.yaml
 ros2 launch mppi_controller mppi_controller.launch.py config:=params_gazebo_s1.yaml
 ```
 
-#### Simulation S2
-```bash
-ros2 launch scout_simulation s2.launch.py 
-ros2 launch actor_control actor_control.launch.py config:=s2_params.yaml
-ros2 launch actor_control actor_control.launch.py config:=s2_ped_params.yaml
-ros2 launch mppi_controller mppi_controller.launch.py config:=params_gazebo_s2.yaml
-```
-
-
-#### Simulation S3
-```bash
-ros2 launch scout_simulation s3.launch.py 
-ros2 launch actor_control actor_control.launch.py config:=s3_params.yaml
-ros2 launch actor_control actor_control.launch.py config:=s3_ped_params.yaml
-ros2 launch mppi_controller mppi_controller.launch.py config:=params_gazebo_s3.yaml
-```
-
-#### Simulation S4
-```bash
-ros2 launch scout_simulation s4.launch.py 
-ros2 launch actor_control actor_control.launch.py config:=s4_params.yaml
-ros2 launch actor_control actor_control.launch.py config:=s4_ped_params.yaml
-ros2 launch mppi_controller mppi_controller.launch.py config:=params_gazebo_s4.yaml
-```
-
-#### Simulation S5
-```bash
-ros2 launch scout_simulation s5.launch.py 
-ros2 launch actor_control actor_control.launch.py config:=s5_params.yaml
-ros2 launch actor_control actor_control.launch.py config:=s5_ped_params.yaml
-ros2 launch mppi_controller mppi_controller.launch.py config:=params_gazebo_s5.yaml
-```
 
 #### Gazebo GUI Tip
 ```bash
@@ -163,6 +131,6 @@ ros2 run joy joy_node
 ```
 
 ## TODO
-- [X] Smooth MPPI with CBF
-- [ ] VLM Companion Strategy + COT prompt
-- [ ] Experiment
+- [ ] 
+- [ ] 
+- [ ] 
